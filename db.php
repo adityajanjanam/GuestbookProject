@@ -1,10 +1,11 @@
 <?php
 // db.php
 
-$servername = "localhost";
-$username = "root";
-$password = ""; // Default XAMPP password is empty
-$database = "guestbook_db";
+// Use environment variables for database configuration
+$servername = getenv('DB_HOST') ?: 'localhost';
+$username = getenv('DB_USER') ?: 'root';
+$password = getenv('DB_PASS') ?: ''; // Default XAMPP password is empty
+$database = getenv('DB_NAME') ?: 'guestbook_db';
 
 $conn = new mysqli($servername, $username, $password, $database);
 
